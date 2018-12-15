@@ -1,0 +1,29 @@
+.top-pagination-content,
+.nbrItemPage,
+.product-count,
+.pagination_previous b,
+.pagination_next b,
+.showall {
+  display: none; }
+
+#pagination_bottom {
+  width: 100% !important; }
+
+.bottom-pagination-content {
+  border: none; }
+
+.bottom-pagination-content ul.pagination li.pagination_previous,
+.bottom-pagination-content ul.pagination li.pagination_next {
+  display: none; }
+
+.infiniteScrollNav {
+  display: block;
+  clear: both;
+  text-align: center;
+  margin-top: 30px; }
+
+.infiniteScrollMorePreloader {
+  margin-bottom: 20px; }
+
+ul.product_list {
+  margin-top: 10px; }

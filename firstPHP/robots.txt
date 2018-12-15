@@ -1,0 +1,8 @@
+Sitemap: https://penotep.ru/sitemap.xml
+User-agent: *
+Disallow: /admin/
+Disallow: /assets/
+Disallow: /sm/
+Disallow: /phpsitemapng/
+Disallow: /themes/
+Host: penotep.ru

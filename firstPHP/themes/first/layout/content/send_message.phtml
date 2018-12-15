@@ -1,0 +1,31 @@
+<?
+$data = $sk['mail_data'];
+if($data['mail_type'] == "new_request") {?>
+
+
+    Уведомление о новой заявке на сайте  <a  href="//<?=$_SERVER['SERVER_NAME']?>"><?=$_SERVER['SERVER_NAME']?></a>
+    <br><br>
+
+    <b>Имя:</b> <?=$data['name'];?>  <br>
+    <b>Телефон:</b> <?=$data['phone'];?>  <br>
+    <b>Email:</b> <?=$data['email'];?>  <br>
+    <b>Тип обращения:</b> <?=$data['type'];?>  <br>
+    <br>
+    <b>Текст сообщения:</b>
+    <br>
+    <?= $data['text']; ?>
+    <br>
+    <br>
+    <b>Дата:</b> <?= date("d.m.Y H:i:s"); ?>
+    <br>
+    Информер <a  href="//<?=$_SERVER['SERVER_NAME']?>"><?=$_SERVER['SERVER_NAME']?></a>
+
+    <?}
+
+
+
+
+
+
+
+

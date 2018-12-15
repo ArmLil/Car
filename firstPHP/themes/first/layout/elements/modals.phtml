@@ -1,0 +1,223 @@
+<div id="good_info_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h5 class="modal-title">Подтверждение принятия действия</h5>
+            </div>
+            <div class="modal-body">
+                Внимание! Принимая заявку, сумма  регламентированная  за выполнение действия вебмастером
+                будет зачислена на счет для оплаты Вашего долга<br>
+                <h6>Стоимость данного действия <span class="hold_pay_sum"></span></h6> .
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Отменить</button>
+                <button type="button" class="btn btn-danger legitRipple">Принять</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+   #cart_modal .btn-default.active,#cart_modal .btn-default.focus,#cart_modal .btn-default:active,#cart_modal .btn-default:focus,#cart_modal .btn-default:hover{
+        color: #fff;
+    }
+
+   #add_to_cart_modal .btn-default.active,#add_to_cart_modal .btn-default.focus,#add_to_cart_modal .btn-default:active,#add_to_cart_modal .btn-default:focus,#add_to_cart_modal .btn-default:hover{
+        color: #fff;
+    }
+</style>
+
+<div id="add_to_cart_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h5 class="modal-title">Корзина</h5>
+            </div>
+            <div class="modal-body">
+                <div id="layer_cart" style="display: block;">
+                    <div class="layer_cart_product">
+                        <span class="cross" title="Закрыть окно"></span>
+                        <span class="title">
+        Товар добавлен в корзину
+      </span>
+                        <div class="product-image-container layer_cart_img"><img class="layer_cart_img img-responsive" src="https://ld-prestashop.template-help.com/prestashop_64388/img/p/1/0/1/101-tm_home_default.jpg" alt="Spicely Chili Ancho Ground" title="Spicely Chili Ancho Ground"></div>
+                        <div class="layer_cart_product_info">
+                            <span id="layer_cart_product_title" class="product-name">Spicely Chili Ancho Ground</span>
+                            <span id="layer_cart_product_attributes">0.12 oz</span>
+                            <div>
+                                <span>Количество:</span>
+                                <span id="layer_cart_product_quantity">2</span>
+                            </div>
+                            <div>
+                                <span>Итого, к оплате:</span>
+                                <span id="layer_cart_product_price">$22.10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layer_cart_cart">
+      <span class="title">
+        <!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
+        <span class="ajax_cart_product_txt_s  unvisible" style="display: inline;">
+          Товаров в корзине: <span class="ajax_cart_quantity">3</span>.
+        </span>
+          <!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
+        <span class="ajax_cart_product_txt " style="display: none;">
+          Сейчас в корзине 1 товар.
+        </span>
+      </span>
+
+                        <div class="layer_cart_row">
+                            <strong class="dark">
+                                Стоимость
+                            </strong>
+                            <span class="ajax_block_products_total">$40.10</span>
+                        </div>
+
+                        <div class="layer_cart_row  unvisible">
+                            <strong class="dark">
+                                Стоимость доставки&nbsp;        </strong>
+                            <span class="ajax_cart_shipping_cost">Определить</span>
+                        </div>
+                        <div class="layer_cart_row">
+                            <strong class="dark">
+                                Итого, к оплате
+                            </strong>
+                            <span class="ajax_block_cart_total">$40.10</span>
+                        </div>
+                        <div class="button-container">
+        <span class="continue btn btn-default btn-md" title="Продолжить покупки">
+          <span>
+            Продолжить покупки
+          </span>
+        </span>
+                            <a class="btn btn-primary btn-md" href="https://ld-prestashop.template-help.com/prestashop_64388/index.php?controller=order" title="Оформить заказ" rel="nofollow">
+          <span>
+            Оформить заказ
+          </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="crossseling"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p class="cart-buttons">
+                <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Продолжить покупки</button>
+<!--                <button type="button" class="btn btn-danger legitRipple">Принять</button>-->
+
+
+                    <a id="button_order_cart" class="btn btn-default btn-md" href="/index.php?controller=order" title="Оформить заказ" rel="nofollow">
+                <span>
+                  Оформить заказ
+                </span>
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cart_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h5 class="modal-title">Корзина</h5>
+            </div>
+            <div class="modal-body">
+                <div class="cart_block block" style="position: relative;width: 100%;right: 0;">
+                    <div class="block_content">
+                        <!-- block list of products -->
+                        <div class="cart_block_list">
+                            <p class="cart_block_no_products">
+                                Нет товаров
+                            </p>
+                            <div class="cart-prices">
+                                <div class="cart-prices-line first-line  unvisible">
+                <span>
+                  Доставка:
+                </span>
+                                    <span class="cart_block_shipping_cost ajax_cart_shipping_cost">
+                                      Определить                                  </span>
+                                </div>
+                                <div class="cart-prices-line last-line">
+                                    <span>Итого, к оплате</span>:
+                                    <span class="price cart_block_total ajax_block_cart_total">$0.00</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!-- .cart_block -->
+            </div>
+
+            <div class="modal-footer">
+                <p class="cart-buttons">
+                <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Продолжить покупки</button>
+<!--                <button type="button" class="btn btn-danger legitRipple">Принять</button>-->
+
+
+                    <a id="button_order_cart" class="btn btn-default btn-md" href="/index.php?controller=order" title="Оформить заказ" rel="nofollow">
+                <span>
+                  Оформить заказ
+                </span>
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function SetModalTop(){
+        mod_top = $("#header").height();
+        $(".modal .modal-content").css({"top": mod_top+"px","border-radius":"0px"});
+    }
+    $(function () {
+
+    });
+
+
+
+    function ShowGoodInfo(good_id){
+        SetModalTop();
+        $("#good_info_modal").modal("show");
+    }
+
+    function AddToCart(good_id) {
+        AddAndShowGoodCart();
+    }
+
+
+    function ShowGoodCart(){
+        SetModalTop();
+        $("#cart_modal").modal("show");
+    }
+    function AddAndShowGoodCart(){
+        SetModalTop();
+        $("#add_to_cart_modal").modal("show");
+    }
+    function LikeItem(good_id) {
+
+    }
+</script>
+<script type="text/javascript">
+    var tmdd_msg_days = "дней";
+    var tmdd_msg_hr = "час";
+    var tmdd_msg_min = "мин";
+    var tmdd_msg_sec = "сек";
+
+    $("[data-countdown]").each(function() {
+        var $this = $(this), finalDate = $(this).data("countdown");
+        $this.countdown(finalDate, function(event) {
+            $this.html(event.strftime('<span><span>%D</span>' + tmdd_msg_days + '</span><span><span>%H</span>' + tmdd_msg_hr + '</span><span><span>%M</span>' + tmdd_msg_min + '</span><span><span>%S</span>' + tmdd_msg_sec + '</span>'));
+        });
+    });
+</script>

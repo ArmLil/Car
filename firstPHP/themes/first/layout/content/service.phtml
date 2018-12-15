@@ -1,0 +1,136 @@
+<section class="constructo-page-title-area parallaxsection">
+    <div class="parallax-windowf" data-parallax="scroll" data-image-src="/themes/penotep4/layout/img/home1.jpg"></div>
+    <div class="display-cell">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-left">
+                    <div class="constructo-page-title">
+                        <h1 class="titlecolor"><?=$sk['item']['name']?></h1>
+                        <ol class="breadcrumb">
+                            <li><a href="/">Главная </a></li>
+                            <li class="active"><a href="#"><?=$sk['item']['name']?></a></li>
+                        </ol>
+                        <img src="/themes/penotep4/layout/img/linew.png" alt="<?=$_SERVER['SERVER_NAME'];?> <?=$sk['item']['name']?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of home area -->
+<section class="constructo-get-quote-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 text-left">
+                <div class="get-quate-content">
+                    <h2>Вы можете задать вопросы профессионалам</h2>
+                    <p>Оставьте заявку на нашем сайте, и Вам тут же перезвонит наш специалист и проконсультирует по всем вопросам утепления любых конструкций и помещений</p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right">
+                <div class="get-btn">
+                    <a href="#contacts">Оставить заявку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of get quate area -->
+<!-- start news section -->
+<section class="constructo-news-post-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-7">
+                <div class="single-news-post">
+                    <div class="news-post-img">
+                        <img src="<?=$sk['item']['avatar_original']?>" alt="theconstructo.com">
+                    </div>
+                    <div class="post-title">
+                        <h2><?=$sk['item']['name']?></h2>
+                    </div>
+
+                    <?if($sk['item']['name_sub'] !== ''){?>
+                    <div class="date">
+                        <p>Примечание: <span><?=$sk['item']['name_sub'];?></span></p>
+                    </div>
+                    <?}?>
+                    <p>&nbsp;&nbsp;&nbsp; <?=SK_secureEncode($sk['item']['description']);?></p>
+                    <blockquote></blockquote>
+
+                </div>
+            </div>
+            <div class="col-sm-5 col-md-4">
+                <div class="sidebar-area">
+                    <div class="single-sidebar">
+                        <div class="widget-title text-center">
+                            <h2>Другие виды работ</h2>
+                            <img src="/themes/penotep4/layout/img/line.png" alt="theconstructo.com">
+                        </div>
+
+                        <div class="features-side-slider">
+
+                            <?
+
+                            $posts = GetAllPostsPagination(0,100);
+                            if(count($posts)>0){
+                                $next = false;
+                                $i=0;
+
+                                ?><div class="single-side-features"><?
+                                foreach ($posts as $post){
+                                 $i++;
+                                 ?>
+                                    <a href="/service/<?=$post['id'];?>">
+                                            <div class="sideimg">
+                                                <img src="<?=$post['avatar_url'];?>" alt="<?=$_SERVER['SERVER_NAME'];?> <?=$post['name'];?>">
+                                            </div>
+                                            <div class="side-title">
+                                                <p> <?=$post['name'];?></p>
+                                                <p><span><?=$_SERVER['SERVER_NAME'];?></span></p>
+                                            </div>
+                                        </a>
+                                    <?
+                               if((($i) % 4)==0 && CheckMorePosts($post['id'])){
+                                    ?></div><div class="single-side-features"><?
+                               }
+
+                                    if($i % 5 && !CheckMorePosts($post['id'])){
+                                        ?></div><?
+                                    }
+
+                                }
+
+
+                            }
+
+                            ?>
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of news section -->
+<!-- start footer top section -->
+<section class="constructo-footer-top section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="footer-top-content">
+                    <h2>Есть вопросы? Оставьте заявку прямо сейчас.</h2>
+                    <p>Мы перезвоним Вам в удобное для Вас время и найдем решения по Вашим вопросам!</p>
+                    <a href="#contacts" class="contat-usf">Оставьте заявку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

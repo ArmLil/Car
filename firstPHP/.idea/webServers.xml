@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f238b6e1-ce0a-46d5-a6f5-8b2f91a4c301" name="first" url="http://aselja0d.beget.tech">
+        <fileTransfer host="aselja0d.beget.tech" port="22" rootFolder="/home/a/aselja0d/firstphp/public_html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

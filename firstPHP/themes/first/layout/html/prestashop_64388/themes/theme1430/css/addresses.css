@@ -1,0 +1,16 @@
+/*
+* @subsection   Addresses Styles
+*/
+#addresses #center_column .page-heading {
+  margin: 0 0 22px; }
+#addresses #center_column p {
+  margin: 0 0 13px; }
+  #addresses #center_column p.p-indent {
+    margin: 0 0 27px; }
+
+ul.address li + li {
+  margin-top: 10px; }
+ul.address .address_title + li {
+  margin-top: 15px; }
+ul.address .address_update {
+  margin-top: 25px; }

@@ -1,0 +1,77 @@
+/*
+* @section   Categories Page Styles
+*/
+.content_scene_cat {
+  margin: 0 0 15px 0;
+  padding-bottom: 0;
+  border-bottom: 1px solid #e5e5e5; }
+  @media (min-width: 480px) {
+    .content_scene_cat {
+      padding-bottom: 35px;
+      margin-bottom: 26px; } }
+  @media (min-width: 768px) {
+    .content_scene_cat {
+      margin-bottom: 53px; } }
+  .content_scene_cat span.category-name {
+    font: 400 40px/1.2 "PT Sans", sans-serif;
+    color: #333333;
+    margin-bottom: 22px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.06em; }
+    @media (min-width: 480px) and (max-width: 767px) {
+      .content_scene_cat span.category-name {
+        font-size: 30px; } }
+    @media (max-width: 479px) {
+      .content_scene_cat span.category-name {
+        font-size: 26px; } }
+  .content_scene_cat p {
+    margin-bottom: 0; }
+  .content_scene_cat a.lnk_more {
+    color: #333333; }
+    .content_scene_cat a.lnk_more:hover {
+      color: #888888;
+      text-decoration: underline; }
+  .content_scene_cat .cat_desc {
+    font-size: 14px; }
+    @media (max-width: 479px) {
+      .content_scene_cat .cat_desc {
+        display: none; } }
+
+/*
+* @subsection   Sub Categories Styles
+*/
+#subcategories {
+  margin-top: 25px;
+  font-size: 14px;
+  overflow: hidden;
+  *zoom: 1; }
+  @media (max-width: 767px) {
+    #subcategories {
+      display: none; } }
+  #subcategories .subcategory-heading {
+    font: bold 18px/1.3 "PT Sans", sans-serif;
+    font-size: 16px;
+    color: #333333;
+    text-transform: uppercase;
+    letter-spacing: 0.06em; }
+  #subcategories ul {
+    margin: 0; }
+    @media (min-width: 1200px) {
+      #subcategories ul {
+        width: 20%; } }
+    @media (min-width: 1550px) {
+      #subcategories ul {
+        width: 17%; } }
+    #subcategories ul li {
+      margin-top: 5px; }
+      @media (min-width: 1200px) {
+        #subcategories ul li {
+          margin-top: 10px; } }
+      #subcategories ul li a {
+        display: inline-block; }
+        #subcategories ul li a:hover {
+          color: #333333; }
+        @media (max-width: 1199px) {
+          #subcategories ul li a {
+            font-size: 14px; } }

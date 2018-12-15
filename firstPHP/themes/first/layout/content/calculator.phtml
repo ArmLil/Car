@@ -1,0 +1,214 @@
+<style>
+    #MCalc .step2, #MCalc .step3, #MCalc .step4{
+        display: none;
+    }
+    #MCalc .modal-body h6{
+        margin-top: 9px;
+        font-size: 15px;
+    }
+    #MCalc .ppu_plot option.closed{
+        display: none;
+    }
+    .calc_result{
+        float: left;
+        margin-top: 7px;
+    }
+    #MCalc img{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+     #MCalc a.btn{
+         border: 1px solid transparent;
+    }
+    #MCalc .btn-warning {
+        color: #fff;
+        background-color: #ff9600;
+        border-color: #eea236;
+    }
+    @media only screen and  (max-width: 900px) {
+    #MCalc .col-md-4 img{
+        display: none;
+    }
+    }
+</style>
+<img src='/themes/penotep4/layout/img/calc/87.gif' style='height: 16px;display: none'>
+<script>
+    function ListStepCalc(step) {
+        $(".modal-content").hide();
+        $(".modal-content.step"+step).show();
+        if(step===4){
+            $(".calc_result").html("Нажмите «Рассчитать» >>>>>");
+        }
+    }
+
+    function CalcIt() {
+        $(".calc_result").html("<img src='/themes/penotep4/layout/img/calc/87.gif' style='height: 16px'>");
+        calc_data = $("#MCalc form").serialize();
+        $.get("/request.php?"+calc_data,{t:"calc_it"},function (data) {
+            if(data.status === 200){
+                $(".calc_result").html("Итого: "+data.html);
+            }
+        });
+
+       // alert("Дофига");
+
+
+    }
+    function SetPPUType(type) {
+           $(".ppu_plot option").removeAttr("selected").hide();
+           $(".ppu_plot option."+type).attr("selected","selected").show();
+    }
+
+    // square ppu_height ppu_type ppu_plot work_temp work_height
+    function RequestFromModal() {
+        $('#MCalc').modal('hide');
+    }
+</script>
+<div class="modal fade" id="MCalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form>
+        <div class="modal-content step1">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Калькулятор рассчетов затрат Шаг 1 <a  class="close pull-right" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Площадь утепляемой поверхности в м²</h6>
+                        <input type="text" class="form-control" placeholder="100" name="square" value="100">
+                        <h6>Выберите толщину слоя утеплителя в мм</h6>
+                        <select class="form-control" id="" title="" name="ppu_height">
+                            <option value="10">10 мм</option>
+                            <option value="20">20 мм</option>
+                            <option value="30" selected>30 мм</option>
+                            <option value="40">40 мм</option>
+                            <option value="50">50 мм</option>
+                            <option value="60">60 мм</option>
+                            <option value="70">70 мм</option>
+                            <option value="80">80 мм</option>
+                            <option value="90">90 мм</option>
+                            <option value="100">100 мм</option>
+                            <option value="110">110 мм</option>
+                            <option value="120">120 мм</option>
+                            <option value="130">130 мм</option>
+                            <option value="140">140 мм</option>
+                            <option value="150">150 мм</option>
+                            <option value="150">160 мм</option>
+                            <option value="150">170 мм</option>
+                            <option value="150">180 мм</option>
+                            <option value="150">190 мм</option>
+                            <option value="150">200 мм</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4"><img src="/themes/penotep4/layout/img/calc/1.png" alt="" class="img-responsive"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a  class="btn btn-warning" onclick="ListStepCalc(2);">Далее >></a>
+                <a  class="btn btn-default" data-dismiss="modal">Закрыть</a>
+            </div>
+        </div>
+        <div class="modal-content step2">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Калькулятор рассчетов затрат Шаг 2 <a  class="close pull-right" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Выберите тип утеплителя</h6>
+                        <select class="form-control" id="" title="" onchange="SetPPUType(this.value)" name="ppu_type">
+                            <option value="opened" selected>Открытая ячейка</option>
+                            <option value="closed">Закрытая ячейка</option>
+                        </select>
+
+                        <h6>Выберите плотность утеплителя DOW</h6>
+                        <select class="form-control ppu_plot" id="" title="" name="ppu_plot">
+                            <option value="10-15" class="opened" selected>10-15 кг/м³</option>
+                            <option value="35-40" class="closed">35-40 кг/м³</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4"><img src="/themes/penotep4/layout/img/calc/2.png" alt="" class="img-responsive"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a  class="btn btn-warning" onclick="ListStepCalc(1);"><< Назад</a>
+                <a  class="btn btn-warning" onclick="ListStepCalc(3);">Далее >></a>
+                <a  class="btn btn-default" data-dismiss="modal">Закрыть</a>
+            </div>
+        </div>
+        <div class="modal-content step3">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Калькулятор рассчетов затрат Шаг 3 <a  class="close pull-right" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Выберите температурные условия для выполнения работ</h6>
+                        <select class="form-control" id="" title="" name="work_temp">
+                            <option value="normal"  selected>Температура от +10 до +30</option>
+                            <option value="hot" >Температура от +30 до +50</option>
+                            <option value="cold" >Температура от -10 до +10</option>
+                        </select>
+
+                        <h6>Выберите условия доступа для выполнения работ</h6>
+                        <select class="form-control" id="" title="" name="work_height">
+                            <option value="normal"  selected>Нормальный доступ</option>
+                            <option value="hi10" >Работы на высоте до 10 метров</option>
+                            <option value="hi100" >Высотные работы до 100 метров</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4"><img src="/themes/penotep4/layout/img/calc/3.png" alt="" class="img-responsive"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a  class="btn btn-warning" onclick="ListStepCalc(2);"><< Назад</a>
+                <a  class="btn btn-warning" onclick="ListStepCalc(4);">Далее >></a>
+                <a  class="btn btn-default" data-dismiss="modal">Закрыть</a>
+            </div>
+        </div>
+        <div class="modal-content step4">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Калькулятор рассчетов затрат Шаг 4 <a  class="close pull-right" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Почти готово!</h4>
+
+                        <p>
+                            <br>
+
+                                Данный подсчет является приблизительным. <br>
+                               Для более детального рассмотрения вашего объекта оставьте заявку и мы тут же перезвоним Вам <br>
+                        </p>
+                        <a href="#contacts" class="btn btn-warning" onclick="RequestFromModal();">Оставить заявку</a>
+
+
+
+                    </div>
+                    <div class="col-md-4"><img src="/themes/penotep4/layout/img/calc/4.png" alt="" class="img-responsive"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h4 class="calc_result"></h4>
+                <a  class="btn btn-warning" onclick="ListStepCalc(3);"><< Назад</a>
+                <a  class="btn btn-warning" onclick="CalcIt();">Рассчитать</a>
+                <a  class="btn btn-default" data-dismiss="modal">Закрыть</a>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

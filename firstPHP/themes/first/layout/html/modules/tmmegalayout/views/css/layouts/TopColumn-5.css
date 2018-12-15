@@ -1,0 +1,5 @@
+@media (min-width: 1200px) {
+  #index.one-column .header-absolute {
+    position: static;
+  }
+}

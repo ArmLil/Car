@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3411be6b-b47e-4f74-ade2-1cbcfcbc2a65" name="car" url="http://chat.newera.ooo">
+        <fileTransfer host="chat.newera.ooo" port="22" rootFolder="/home/a/aselja0d/chat.newera.ooo/public_html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

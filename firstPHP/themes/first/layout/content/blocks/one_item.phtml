@@ -1,0 +1,105 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: User
+ * Date: 016 16.10.18
+ * Time: 21:37
+ */
+$good = $sk['good'];
+?>
+
+<li class="ajax_block_product">
+    <div class="product-container" itemscope itemtype="https://schema.org/Product">
+        <div class="left-block">
+            <div class="product-image-container">
+
+
+                <div class="tmproductlistgallery rollover">
+                    <div class="tmproductlistgallery-images horizontal_slide">
+                        <a class="product_img_link cover-image" href="/" title="<?=$good['name']?>" itemprop="url">
+                            <img class="img-responsive" src="<?=$good['avatar_url']?>" alt="<?=$good['name']?>" title="<?=$good['name']?>" />
+                        </a>
+                        <a class="product_img_link rollover-hover" href="/" title="<?=$good['name']?>" itemprop="url">
+                            <img class="img-responsive" src="<?=$good['avatar2_url']?>" alt="<?=$good['name']?>" title="<?=$good['name']?>" />
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="info-block">
+
+                <?if($good['newest'] == 1){?>
+                <a class="new-box" href="/index.php?id_product=26&amp;controller=product&amp;id_lang=3">
+                    <span class="new-label">Новое</span>
+                </a>
+                <?}?>
+
+                <?if($good['sale'] > 0){?>
+                <a class="sale-box" href="/index.php?id_product=26&amp;controller=product&amp;id_lang=3">
+                    <span class="sale-label">Скидка!</span>
+                    <span class="price-reduction">-<?=$good['sale'];?>%</span>
+                </a>
+                <?}?>
+
+            </div>
+            <?if(!empty($good['sale_time']) && $good['sale'] > 0){
+
+
+                ?>
+            <div class="price-block">
+                <div class="daydeal-box">
+                    <div data-countdown="<?=$good['sale_time']?>"></div>
+                </div>
+            </div>
+            <?}?>
+        </div>
+        <div class="right-block">
+            <h5 itemprop="name">
+                <a class="product-name" href="/index.php?id_product=27&amp;controller=product&amp;id_lang=3" title="Whole Spice Nutmeg Whole" itemprop="url" >
+                    <span class="list-name"><?=$good['name']?></span>
+                    <span class="grid-name"><?=$good['name']?></span>
+                </a>
+            </h5>
+            <div class="content_price">
+
+                  <span class="price product-price">
+                    <?if($good['currency']=='RUB'){?><i class="fa fa-rouble"></i><?}?> <?if($good['currency']=='USD'){?><i class="fa fa-dollar"></i><?}?><?=$good['cost']?>                  </span>
+
+
+
+            </div>
+            <p class="product-desc" itemprop="description">
+                <span class="list-desc">Welcome to the world of the unbelievable smell and perfect taste. From ancient times spices were very rare and expensive. Only very rich people could afford buying spices. Nowadays spices have become a casual part of all the types of cuisine. We can’t imagine our life without pepper or cinnamon.</span>
+            </p>
+            <div class="hook-reviews">
+                <div class="comments_note" itemscope itemtype="https://schema.org/AggregateRating">
+                    <div class="star_content clearfix">
+                        <div class="star star_on"></div>
+                        <div class="star star_on"></div>
+                        <div class="star star_on"></div>
+                        <div class="star star_on"></div>
+                        <div class="star star_off"></div>
+                        <meta itemprop="worstRating" content = "0" />
+                        <meta itemprop="ratingValue" content = "5" />
+                        <meta itemprop="bestRating" content = "5" />
+                    </div>
+                    <span class="nb-comments"><span itemprop="reviewCount">1</span> Обзор(ы)</span>
+                </div>
+
+            </div>
+            <div class="product-flags">
+            </div>
+            <div class="button-container">
+                <a class="ajax_add_to_cart_button btn btn-md btn-primary like" href="javascript:AddToCart(<?=$good['id']?>);"  title="В корзину" >
+                    <span>В корзину</span>
+                </a>
+                <div class="wishlist">
+                    <a class="addToWishlist " href="javascript:LikeItem(<?=$good['id']?>);"></a>
+                </div>
+
+                <a class="quick-view" href="javascript:ShowGoodInfo();"></a>
+            </div>
+        </div>
+    </div><!-- .product-container> -->
+</li>

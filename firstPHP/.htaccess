@@ -1,0 +1,30 @@
+RewriteEngine on
+AddDefaultCharset utf-8
+
+
+# redirect на https
+#RewriteCond %{HTTP_HOST} penotep.ru
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+
+# redirect на https
+#RewriteCond %{HTTP_HOST} finik.shop
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^\/]+)/([^\/]+)/([^\/]+)(\/|)$  index.php?tab1=$1&tab2=$2&tab3=$3 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^\/]+)/([^\/]+)(\/|)$  index.php?tab1=$1&tab2=$2 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^\/]+)(\/|)$  index.php?tab1=$1 [QSA]
